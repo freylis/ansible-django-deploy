@@ -1,0 +1,17 @@
+# system options
+username: deployer
+user_password: z
+user_homedir: "/home/{{ username }}"
+
+# project options
+project_slug: mikevolkov
+project_url: mikevolkov.com
+
+project_dir: "{{ user_homedir }}/projects/{{ project_slug }}"
+project_homedir: "{{ user_homedir }}/projects/{{ project_slug }}"
+
+# uwsgi options
+uwsgi_port: 8051
+
+mysql_user:
+mysql_password:

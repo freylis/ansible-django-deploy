@@ -1,0 +1,9 @@
+---
+# create user to project
+# set password to user
+# install soft:
+  # python-dev
+  # python-pip
+  # python-virtualenv
+  # uwsgi
+  # uwsgi-plugin-python

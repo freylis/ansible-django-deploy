@@ -1,0 +1,11 @@
+---
+# create tar arcive
+# copy tar archive to host
+# unarchive tar archive to project directory
+# create `logs` directory to nginx
+# copy `uwsgi.project.ini` file to project homedir
+# copy local_settings.py file to need directory
+# create virtualenv
+# install packages from requirements.txt
+# migrate
+# collectstatic

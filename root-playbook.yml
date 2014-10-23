@@ -1,0 +1,8 @@
+---
+- hosts: root-hosts
+  sudo: true
+  roles:
+    - system
+    - mysql
+    - nginx
+    - supervisor
