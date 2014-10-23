@@ -1,0 +1,11 @@
+[program:{{ project_url }}]
+user = {{ username }}
+command = /usr/bin/uwsgi --ini {{ project_dir }}/{{ project_slug }}/uwsgi.{{ project_slug }}.ini
+stdout_logfile = {{ project_dir }}/logs/supervisor.log
+stderr_logfile = {{ project_dir }}/logs/supervisor.log
+directory = {{ project_dir }}/{{ project_slug }}
+autostart = true
+autorestart = true
+redirect_stderr = true
+numprocs=1
+stopsignal = QUIT

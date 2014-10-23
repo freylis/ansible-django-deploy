@@ -1,0 +1,64 @@
+---
+
+- name: updating the system
+  apt: update_cache=yes cache_valid_time=86400
+  notify:
+  - restart server
+
+- name: Add mariadb apt repository key
+  apt_key: id=0xcbcb082a1bb943db keyserver=hkp://keyserver.ubuntu.com:80 state=present
+
+- name: Add mariadb apt repository
+  apt_repository: repo='deb http://mirror.timeweb.ru/mariadb/repo/10.1/debian wheezy main' state=present
+
+- name: install packages
+  apt: pkg={{ item.name }} state=present
+  with_items:
+    - name: python-mysqldb
+    - name: python-virtualenv
+    - name: python-pip
+    - name: supervisor
+    - name: mariadb-server
+    - name: nginx
+    - name: uwsgi
+    - name: uwsgi-plugin-python
+
+- name: copy supervisor config
+  template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/{{ project_url }}.conf
+  notify:
+    - restart site
+
+- name: create linux user
+  user: name={{ username }} shell=/bin/bash home={{ user_homedir }} password={{ user_crypt_password }}
+
+- name: Create MySQL user
+  mysql_user: >
+    name={{ mysql_user }}
+    host=%
+    password={{ mysql_user_password }}
+    priv={{ mysql_database }}.*:ALL
+    login_user={{ mysql_root_user }}
+    login_password={{ mysql_root_password }}
+    state=present
+  notify:
+    - restart mysql
+
+# create database
+- name: Create MySQL database
+  mysql_db: >
+    name={{ mysql_database }}
+    collation=utf8_general_ci
+    encoding=utf8
+    login_user={{ mysql_root_user }}
+    login_password={{ mysql_root_password }}
+    state=present
+  notify:
+    - restart mysql
+
+- name: copy nginx config
+  template: src=nginx.j2 dest=/etc/nginx/sites-available/{{ project_url }}
+  notify:
+    - restart nginx
+
+- name: create symlink nginx config
+  file: src=/etc/nginx/sites-available/{{ project_url }} dest=/etc/nginx/sites-enabled/{{ project_url }} state=link
