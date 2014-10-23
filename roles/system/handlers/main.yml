@@ -1,0 +1,10 @@
+---
+
+- name: restart site
+  supervisorctl: name={{ project_url }} state=restarted
+
+- name: restart mysql
+  service: name=mysql state=restarted enabled=yes
+
+- name: restart nginx
+  service: name=nginx state=restarted enabled=yes

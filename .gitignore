@@ -1,0 +1,3 @@
+.idea/*
+roles/django/templates/id_rsa
+roles/django/templates/id_rsa.pub
