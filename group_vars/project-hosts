@@ -21,4 +21,4 @@ mysql_database: "{{ project_slug }}"
 mysql_user: 'some_user'
 mysql_user_password: 'some_password'
 
-repository: 'git@bitbucket.org:freylis/mikevolkov.git'
+debug: True
