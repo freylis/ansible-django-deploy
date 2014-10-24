@@ -1,5 +1,6 @@
 # system options
 username: deployer
+user_crypt_password: $6$wyIMFM6YO/kI$RAzIdVe1j5LP8gY/03ahNzvKgwH9SN7.xr/Fs0dpvSd3mJpVijPSL17DTW6kQeN0CwXRWdcjZFetsJyiCJSPn.
 user_password: z
 user_homedir: "/home/{{ username }}"
 
@@ -8,10 +9,16 @@ project_slug: mikevolkov
 project_url: mikevolkov.com
 
 project_dir: "{{ user_homedir }}/projects/{{ project_slug }}"
-project_homedir: "{{ user_homedir }}/projects/{{ project_slug }}"
+project_homedir: "{{ user_homedir }}/projects/{{ project_slug }}/{{ project_slug }}"
+env: "{{ project_dir }}/env"
 
 # uwsgi options
 uwsgi_port: 8051
 
-mysql_user:
-mysql_password:
+mysql_root_user: root
+mysql_root_password: ""
+mysql_database: "{{ project_slug }}"
+mysql_user: 'some_user'
+mysql_user_password: 'some_password'
+
+repository: 'git@bitbucket.org:freylis/mikevolkov.git'

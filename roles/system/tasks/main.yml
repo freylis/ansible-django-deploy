@@ -1,9 +1,19 @@
 ---
-# create user to project
-# set password to user
-# install soft:
-  # python-dev
-  # python-pip
-  # python-virtualenv
-  # uwsgi
-  # uwsgi-plugin-python
+
+- name: install packages
+  apt: pkg={{ item.name }} state=present
+  with_items:
+    - name: python-mysqldb
+    - name: python-virtualenv
+    - name: python-pip
+    - name: supervisor
+    - name: git
+
+- name: copy supervisor config
+  template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/{{ project_url }}.conf
+  notify:
+    - restart site
+
+# create linux user
+- name: create linux user
+  user: name={{ username }} shell=/bin/bash home={{ user_homedir }} password={{ user_crypt_password }}

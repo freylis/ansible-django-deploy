@@ -3,6 +3,5 @@
   sudo: true
   roles:
     - system
-    - mysql
+    - database
     - nginx
-    - supervisor

@@ -1,2 +1,4 @@
 ---
-# restart mysql
+
+- name: restart site
+  supervisorctl: name={{ project_url }} state=restarted
