@@ -22,7 +22,7 @@ Usage
 1. install [ansible](http://docs.ansible.com/intro_installation.html)
 2. clone repository to your django `example` project:
 ```
-git clone git@github.com:freylis/django-deploy.git
+git clone git@github.com:freylis/ansible-django-deploy.git
 ```
 
 3. Copy `Makefile` to you root project directory
