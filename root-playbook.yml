@@ -3,5 +3,3 @@
   sudo: true
   roles:
     - system
-    - database
-    - nginx

@@ -6,7 +6,7 @@ user_homedir: "/home/{{ username }}"
 
 # project options
 project_slug: mikevolkov
-project_url: mikevolkov.com
+project_url: mikevolkov1.com
 
 project_dir: "{{ user_homedir }}/projects/{{ project_slug }}"
 project_homedir: "{{ user_homedir }}/projects/{{ project_slug }}/{{ project_slug }}"

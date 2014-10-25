@@ -1,9 +1,0 @@
----
-
-- name: install nginx packages
-  apt: pkg=nginx state=present
-
-- name: copy nginx config
-  template: src=nginx.j2 dest=/etc/nginx/sites-available/{{ project_url }}
-  notify:
-    - restart nginx
