@@ -1,25 +1,60 @@
+#
 # system options
-username: example1
-user_crypt_password: $6$wyIMFM6YO/kI$RAzIdVe1j5LP8gY/03ahNzvKgwH9SN7.xr/Fs0dpvSd3mJpVijPSL17DTW6kQeN0CwXRWdcjZFetsJyiCJSPn.
+#
+
+# linux username
+username:
+
+# about password crypt
+# http://docs.ansible.com/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module
+# or run `mkpasswd --method=SHA-512`
+# here crypted
+user_crypt_password:
+
+# really password
 user_password: z
+
 user_homedir: "/home/{{ username }}"
 
+mysql_root_user: root   # root mysql user
+mysql_root_password: ""
+
+
+#
 # project options
-project_slug: example1
-project_url: example1.com
+#
+
+# project slug ( if u have `example/manage.py` and example/example/settings.py` - `example` is project_slug)
+project_slug:
+
+# url or list urls for nginx
+project_url:
 
 project_dir: "{{ user_homedir }}/projects/{{ project_slug }}"
+
 project_homedir: "{{ user_homedir }}/projects/{{ project_slug }}/{{ project_slug }}"
+
+# virtualenv name
 env: "{{ project_dir }}/env"
 
-# uwsgi options
-uwsgi_port: 8052
+# port for uwsgi, must be unique for each project
+uwsgi_port: 9000
 
-mysql_root_user: root
-mysql_root_password: ""
+# mysql database for current project
 mysql_database: "{{ project_slug }}"
-mysql_user: 'example1'
-mysql_user_password: 'example1-password'
+
+# mysql user for current project
+mysql_user:
+
+# mysql user password for current project
+mysql_user_password:
+
+#
+# django settings
+#
 
 debug: True
+local_settings: 'local_settings.py'
+
+# set empty string if not used
 requirements: 'requirements.txt'
