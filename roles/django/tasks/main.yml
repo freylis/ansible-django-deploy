@@ -9,7 +9,7 @@
   unarchive: src=/tmp/django_deploy.tar dest={{ project_dir }}
 
 - name: create virtualenv
-  pip: virtualenv={{ env }} virtualenv_site_packages=yes requirements={{ project_homedir }}/requirements.txt
+  pip: virtualenv={{ env }} virtualenv_site_packages=yes {% if requirements %}requirements={{ project_homedir }}/{{ requirements }}{% endif %}
 
 - name: copy uwsg file
   template: src=uwsgi.j2 dest={{ project_homedir }}/uwsgi.{{ project_slug }}.ini

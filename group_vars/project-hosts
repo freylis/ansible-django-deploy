@@ -22,3 +22,4 @@ mysql_user: 'some_user'
 mysql_user_password: 'some_password'
 
 debug: True
+requirements: 'requirements.txt'
