@@ -13,7 +13,8 @@ django project at local machine with structure:
             # etc
         # etc
 
-And we need to deploy this project for remote host 192.168.0.100 with creating new user `hostuser` (optionally) at ubuntu 14.04 (not tested at another versions)
+And we need to deploy this project for remote host 192.168.0.100
+with creating new user `hostuser` (optionally) at ubuntu 14.04 (not tested at another versions)
 
 Usage
 -----
@@ -45,10 +46,9 @@ user ansible_ssh_host=192.168.0.100 ansible_ssh_user=YOU_USER_FOR_PROJECT ansibl
 # linux username
 username:
 
-# about password crypt
-# http://docs.ansible.com/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module
+# [how to generate](http://docs.ansible.com/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module)
 # or run `mkpasswd --method=SHA-512`
-# here crypted
+# here crypted password
 user_crypt_password:
 
 # really password
