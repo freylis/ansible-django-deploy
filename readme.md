@@ -29,7 +29,7 @@ Usage
 
 4. configure `django-deploy/hosts` file:
 
-    # usually YOU_USER_PASSWORD == YOU_SUDO_USER_PASSWORD
+    #usually YOU_USER_PASSWORD == YOU_SUDO_USER_PASSWORD
     root ansible_ssh_host=192.168.0.100 ansible_ssh_user=YOUR_SUDO_USERNAME ansible_ssh_pass=YOU_USER_PASSWORD ansible_sudo_pass=YOU_SUDO_USER_PASSWORD
     user ansible_ssh_host=192.168.0.100 ansible_ssh_user=YOU_USER_FOR_PROJECT ansible_ssh_pass=USER_FOR_PROJECT_PASSWORD
 
