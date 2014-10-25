@@ -46,7 +46,8 @@ user ansible_ssh_host=192.168.0.100 ansible_ssh_user=YOU_USER_FOR_PROJECT ansibl
 # linux username
 username:
 
-# [how to generate](http://docs.ansible.com/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module)
+# how to crypt your password:
+# http://docs.ansible.com/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module
 # or run `mkpasswd --method=SHA-512`
 # here crypted password
 user_crypt_password:
